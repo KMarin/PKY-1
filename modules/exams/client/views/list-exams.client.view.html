@@ -1,21 +1,20 @@
 <div class="col-md-4">
-	<table>			
-		<th>Title</th>
-		<th>Class</th>
-		<tr ng-repeat= "e in exams" ng-click="select_exam(e)">
-			<td>{{e.title}}</td>
-			<td>{{e.class}}</td>
-		</tr>
-	</table>
+
+		<ul ng-repeat= "(key,value) in exams | groupBy: 'class'">
+			Class name: {{key}}
+			<li ng-repeat="exam in value" ng-click="select_exam(exam)">
+				{{exam.title}}
+			</li>
+		</ul>
 </div>
 
-<div class = "col-md-8" ng-show="selected_exam" ng-init="add_question = false">
+<div class = "col-md-8" ng-show="selected_exam">
 	<div>
 		{{selected_exam.title}}</br>
 		{{selected_exam.class}}</br>
 		{{selected_exam | json}}
 	</div>
-	<div class="btn btn-primary" ng-click="open()">
+	<div class="btn btn-primary" ng-click="add_question(selected_exam)">
 		Add a new question
         <i class="glyphicon glyphicon-plus"></i>		
 	</div>

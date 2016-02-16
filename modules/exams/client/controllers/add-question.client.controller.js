@@ -7,7 +7,7 @@
 
   AddQuestionController.$inject = ['$scope','$state','$stateParams', 'ExamsService', 'Authentication','$uibModalInstance','selected_exam'];
 
-  function AddQuestionController($scope, $state, $stateParams, ExamsService, Authentication, $uibModalInstance,selected_exam) {
+  function AddQuestionController($scope, $state, $stateParams, ExamsService, Authentication, $uibModalInstance, selected_exam) {
   $scope.selected_exam = selected_exam;
   $scope.question_content = null;
   $scope.answers_content = [];
