@@ -1,3 +1,24 @@
+html {
+  background:#0175CA url(../img/blue-geo-tiles.png) no-repeat center center fixed; 
+  min-height:100%;
+  -webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
+}
+
+body {
+  background:transparent;
+  min-height:100%;  
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  line-height: 1.5em;
+  font-size:14px;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #fefefe !important;
+  font-weight: normal;
+}
+
 .content {
   margin-top: 50px;
 }
@@ -34,4 +55,77 @@ a:hover .header-profile-image {
 }
 .has-error .help-inline.error-text {
   display: inline;
+}
+.section { 
+  z-index: 1;
+  min-height:420px;
+  width: 100%; 
+  overflow:hidden !important;
+  height:100%;
+  padding-top:100px;
+  padding-bottom:50px; 
+  display:none;
+  top:0;
+  }
+
+  #head{
+    display: block;
+  }
+
+
+#home-con a.start-test {
+  display: block;
+  width: 360px;
+  background-image: none;
+  background: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 auto;
+  padding: 18px;
+  text-align: center;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  transition: background-color 0.3s;
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+}
+
+#home-con a.start-test:hover, #home-con a.start-test:active {
+  background-color: #3498db;
+}
+.section { 
+  z-index: 1;
+  min-height:420px;
+  width: 100%; 
+  overflow:hidden !important;
+  height:100%;
+  padding-top:100px;
+  padding-bottom:50px; 
+  display:none;
+  top:0;
+} 
+
+.btn{
+  color:#333;
+  text-shadow: none;
+  text-decoration: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border:0 none;
+}
+.btn-lg { 
+  padding:16px 30px;
+  font-size:inherit;
+}
+.btn-default {
+  background: rgb(255,255,255);
+  background: rgba(255,255,255,.5);
 }
