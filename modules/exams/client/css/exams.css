@@ -1,0 +1,58 @@
+.add-question-modal .modal-dialog {
+  width: 800px;
+}
+
+.mc-answer{
+  width:100%;
+}
+
+
+.question-content textarea{
+  width: 100%;
+}
+
+.mc-answer textarea{
+  width: 100%;
+}
+
+.mc-answer {
+  width: 100%;
+}
+.mc-answer tr{
+  width: 100%;
+}
+.mc-answer td{
+  padding: 10px;
+  padding-left: 0px;
+  width: 100%;
+}
+
+.mc_incorrect.mc_correct i {
+	color: #05EF05;
+	cursor:pointer;
+}
+
+.mc_incorrect.disabled {
+	cursor:pointer;
+}
+
+.mc_incorrect.btn:focus {
+  outline: none;
+}
+
+/*
+.modal-body{
+	width: 800px;
+}
+.modal-title{
+	width: 800px;
+}
+
+.modal-header{
+	width: 800px;
+}
+
+.modal-footer{
+	width: 800px;
+}
+*/

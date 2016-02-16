@@ -1,0 +1,23 @@
+<div class="col-md-4">
+	<table>			
+		<th>Title</th>
+		<th>Class</th>
+		<tr ng-repeat= "e in exams" ng-click="select_exam(e)">
+			<td>{{e.title}}</td>
+			<td>{{e.class}}</td>
+		</tr>
+	</table>
+</div>
+
+<div class = "col-md-8" ng-show="selected_exam" ng-init="add_question = false">
+	<div>
+		{{selected_exam.title}}</br>
+		{{selected_exam.class}}</br>
+		{{selected_exam | json}}
+	</div>
+	<div class="btn btn-primary" ng-click="open()">
+		Add a new question
+        <i class="glyphicon glyphicon-plus"></i>		
+	</div>
+</div>
+
