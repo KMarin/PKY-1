@@ -9,54 +9,27 @@
 
   function ExamsController($scope, $state, $stateParams, ExamsService, Authentication, $uibModal) {
 	
-	
-	
-	
-	
-  $scope.open = function () {
-    var modalInstance = $uibModal.open({
-      animation: true,
-      templateUrl: '/modules/exams/client/views/add-question.client.view.html',
-      controller: 'AddQuestionController',
-	  windowClass: 'add-question-modal',
-      size: "lg",
-      resolve: {
-        selected_exam: function () {
-          return $scope.selected_exam;
-        }
-      }
-    });
 
-    modalInstance.result.then(function (result) {
-    }, function () {
-      
-    });
-  };
+	$scope.add_question = function (exam) {
+		var modalInstance = $uibModal.open({
+		  animation: true,
+		  templateUrl: '/modules/exams/client/views/add-question.client.view.html',
+		  controller: 'AddQuestionController',
+		  windowClass: 'add-question-modal',
+		  size: "lg",
+		  resolve: {
+			selected_exam: function () {
+			  return exam;
+			}
+		  }
+		});
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		modalInstance.result.then(function (result) {
+		}, function () {
+		  
+		});
+	};
+
 	$scope.exam = {};
 	$scope.exams = [];
 	$scope.selected_exam = null;
@@ -98,9 +71,6 @@
 	$scope.delete = function(){
 		
 	};
-	
-
-	
 	
   }
   
