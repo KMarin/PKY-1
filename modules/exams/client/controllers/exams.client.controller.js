@@ -10,7 +10,8 @@
   function ExamsController($scope, $state, $stateParams, ExamsService, Authentication, $uibModal) {
 	
 
-	$scope.add_question = function (exam) {
+	$scope.add_question_to_exam = function (exam) {
+		console.log("here");
 		var modalInstance = $uibModal.open({
 		  animation: true,
 		  templateUrl: '/modules/exams/client/views/add-question.client.view.html',
@@ -47,9 +48,6 @@
 		});
 	}
 	
-	$scope.add_question = function(){
-		
-	};
 
 	$scope.select_exam = function(exam){
 		$scope.selected_exam = exam;
