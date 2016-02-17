@@ -6,7 +6,6 @@
   width:100%;
 }
 
-
 .question-content textarea{
   width: 100%;
 }
@@ -40,6 +39,9 @@
   outline: none;
 }
 
+.answerTable{
+  padding-left: 25px;
+}
 /*
 .modal-body{
 	width: 800px;

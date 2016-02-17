@@ -12,7 +12,18 @@
 	<div>
 		{{selected_exam.title}}</br>
 		{{selected_exam.class}}</br>
-		{{selected_exam | json}}
+		<table>
+			<tr ng-repeat= "question in selected_exam.questions" >
+				<td>
+					<table>
+						<tr><td>{{question.content}}</td></tr>
+						<tr ng-repeat="answer in question.answers">
+							<td class = "answerTable">{{answer.content}}</td>
+						</tr>
+					</table>
+				</td>
+			</tr></br>
+		</table>
 	</div>
 	<div class="btn btn-primary" ng-click="add_question_to_exam(selected_exam)">
 		Add a new question
