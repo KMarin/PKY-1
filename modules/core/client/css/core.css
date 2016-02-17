@@ -15,7 +15,7 @@ body {
   line-height: 1.5em;
   font-size:14px;
   font-family: Helvetica, Arial, sans-serif;
-  color: #fefefe !important;
+  color: #fefefe;
   font-weight: normal;
 }
 
@@ -113,7 +113,7 @@ a:hover .header-profile-image {
 } 
 
 .btn{
-  color:#333;
+  color:#fefefe;
   text-shadow: none;
   text-decoration: none;
   -webkit-border-radius: 3px;

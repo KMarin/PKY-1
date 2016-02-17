@@ -15,8 +15,9 @@
 		<table>
 			<tr ng-repeat= "question in selected_exam.questions" >
 				<td>
-					<table>
-						<tr><td>{{question.content}}</td></tr>
+					<!---table-->
+						<tr><td>{{question.content}}
+						</td></tr>
 						<tr ng-repeat="answer in question.answers">
 							<td class = "answerTable">{{answer.content}}</td>
 						</tr>
