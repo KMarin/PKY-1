@@ -82,7 +82,7 @@ exports.listAll = function (req, res) {
 };
 
 exports.listByClassID = function (req, res) {
-	res.json(req.exams);
+  res.json(req.exams);
 };
 
 /**
@@ -110,7 +110,7 @@ exports.examByID = function (req, res, next, id) {
 };
 
 exports.examsByClassID = function (req, res, next, classID) {
-  Exam.find({'class': classID}).sort('-created').populate('questions').exec(function (err, exams) {
+  Exam.find({ 'class': classID }).sort('-created').populate('questions').exec(function (err, exams) {
     if (err) {
       return next(err);
     } else if (!exams) {
