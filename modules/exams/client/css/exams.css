@@ -52,7 +52,7 @@
 
 .inside-tbl{
     width: 110%;
-    max-width: 500px;
+    width: 700px;
 }
 
 .question-row{
@@ -80,6 +80,16 @@
   height: 15px; 
   border-right: none; 
   border-left: none;"
+}
+
+.pleasework{
+  position: relative;
+  width: 80vw;
+  height: 80vh;
+  background-color: white;
+  border: 20px solid red;
+  right: 17%;
+
 }
 
 /*th, td{
