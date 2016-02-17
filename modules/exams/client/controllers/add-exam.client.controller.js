@@ -5,9 +5,9 @@
     .module('exams')
     .controller('AddExamController', AddExamController);
 
-  AddExamController.$inject = ['$scope', '$state', '$stateParams', 'ExamsService', 'Authentication', '$uibModalInstance'];
+  AddExamController.$inject = ['$scope', '$rootScope', '$state', '$stateParams', 'ExamsService', 'Authentication', '$uibModalInstance'];
 
-  function AddExamController($scope, $state, $stateParams, ExamsService, Authentication, $uibModalInstance) {
+  function AddExamController($scope, $rootScope, $state, $stateParams, ExamsService, Authentication, $uibModalInstance) {
 
 	$scope.new_exam = {};
 	$scope.classes = ["Algebra 1", "Algebra 2"];
