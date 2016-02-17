@@ -6,7 +6,7 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
   
-var ClassTypes = ["Algebra 1", "Algebra 2"];
+var ClassTypes = ['Algebra 1', 'Algebra 2'];
 
 /**
  * Exam Schema
@@ -17,7 +17,7 @@ var ExamSchema = new Schema({
     default: Date.now
   },
   title: {
-	type: String  
+    type: String  
   },
   class: {
     type: String,
@@ -26,8 +26,8 @@ var ExamSchema = new Schema({
   },
   questions: [{ 
     type: Schema.Types.ObjectId, 
-	ref: 'Question' 
-   }]
+    ref: 'Question' 
+  }]
  
 });
 

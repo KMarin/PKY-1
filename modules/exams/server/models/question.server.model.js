@@ -6,7 +6,7 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
-var QuestionTypes = ["multiple choice", "multiple select", "fill in the blank"];
+var QuestionTypes = ['multiple choice', 'multiple select', 'fill in the blank'];
 
 /**
  * Question Schema
@@ -26,25 +26,25 @@ var QuestionSchema = new Schema({
   },
   content: {
     type: String,
-	required: true
+    required: true
   },
   answers: [{
-	  content:{
-	    type: String,
-	    default: '',  
-	  },
-	  value: {
-	    type: Number,
-		default: -1,
-	  },
-	  tolerance:{
-		type: Number,
-		default: 0
-	  },
-	  correct:{
-		type: Boolean,
-		default: false,
-	  }
+    content:{
+      type: String,
+      default: '',  
+    },
+    value: {
+      type: Number,
+      default: -1,
+    },
+    tolerance:{
+      type: Number,
+      default: 0
+    },
+    correct:{
+      type: Boolean,
+      default: false,
+    }
   }]
 });
 

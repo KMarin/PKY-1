@@ -9,28 +9,28 @@
 
   function AddExamController($scope, $rootScope, $state, $stateParams, ExamsService, Authentication, $uibModalInstance) {
 
-	$scope.new_exam = {};
-	$scope.classes = ["Algebra 1", "Algebra 2"];
+    $scope.new_exam = {};
+    $scope.classes = ['Algebra 1', 'Algebra 2'];
 	
-	$scope.submit = function(){
-		ExamsService.create_exam($scope.new_exam)
+    $scope.submit = function(){
+      ExamsService.create_exam($scope.new_exam)
 		.then(function(response){
-			console.log(response);
-			$scope.ok();
+		  console.log(response);
+		  $scope.ok();
 		}, function(error){
-			console.log(error);
-			$scope.ok();
+		  console.log(error);
+		  $scope.ok();
 		});
-	};
+    };
 	
-	$scope.ok = function () {
-		$uibModalInstance.close();
+    $scope.ok = function () {
+	  $uibModalInstance.close();
 	};
 
 	
-	$scope.cancel = function () {
-		$uibModalInstance.dismiss('cancel');
-	};
+    $scope.cancel = function () {
+      $uibModalInstance.dismiss('cancel');
+    };
 	
   }
   

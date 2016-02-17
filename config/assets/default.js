@@ -17,7 +17,7 @@ module.exports = {
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
         'public/lib/angular-file-upload/dist/angular-file-upload.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
-		'public/lib/angular-filter/dist/angular-filter.js'
+        'public/lib/angular-filter/dist/angular-filter.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },
