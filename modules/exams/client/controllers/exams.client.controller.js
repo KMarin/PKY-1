@@ -8,22 +8,19 @@
   ExamsController.$inject = ['$scope','$state','$stateParams', 'ExamsService', 'Authentication','$uibModal'];
 
   function ExamsController($scope, $state, $stateParams, ExamsService, Authentication, $uibModal) {
-	
-
-	$scope.add_question_to_exam = function (exam) {
-		
-		var modalInstance = $uibModal.open({
-		  animation: true,
-		  templateUrl: '/modules/exams/client/views/add-question.client.view.html',
-		  controller: 'AddQuestionController',
-		  windowClass: 'add-question-modal',
-		  size: "lg",
-		  resolve: {
-			selected_exam: function () {
-			  return exam;
-			}
-		  }
-		});
+    $scope.add_question_to_exam = function (exam) {	
+      var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: '/modules/exams/client/views/add-question.client.view.html',
+        controller: 'AddQuestionController',
+        windowClass: 'add-question-modal',
+        size: 'lg',
+        resolve: {
+          selected_exam: function () {
+            return exam;
+          }
+        }
+      });
 
 		modalInstance.result.then(function (result) {
 		}, function () {
