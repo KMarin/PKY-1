@@ -17,15 +17,9 @@
 	
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'exams', {
-      title: 'View Exams',
+      title: 'Edit',
       state: 'exams.list'
     });
 
-    // Add the dropdown create item
-    Menus.addSubMenuItem('topbar', 'exams', {
-      title: 'Create Exam',
-      state: 'exams.create',
-      roles: ['user']
-    });
   }
 })();

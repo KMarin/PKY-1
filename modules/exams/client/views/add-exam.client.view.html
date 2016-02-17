@@ -1,0 +1,12 @@
+<div class="modal-header">
+	<h3 class="modal-title" style="float:left;"> Create a new exam</h3>
+	<button style="float:right;" class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+	<button style="float:right;" class="btn btn-primary" type="button" ng-click="submit()">Submit</button>
+
+</div>
+<div class="modal-body">
+	<table>
+	<tr><td>Name:</td><td><input ng-model="new_exam.title"></input></td></tr>
+	<tr><td>Class:</td><td><select ng-model="new_exam.class" ng-options="c as c for c in classes"></select></td></tr>
+	</table>
+</div>

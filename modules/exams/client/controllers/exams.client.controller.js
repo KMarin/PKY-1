@@ -11,7 +11,7 @@
 	
 
 	$scope.add_question_to_exam = function (exam) {
-		console.log("here");
+		
 		var modalInstance = $uibModal.open({
 		  animation: true,
 		  templateUrl: '/modules/exams/client/views/add-question.client.view.html',
@@ -60,6 +60,22 @@
 		}, function(error){
 			console.log(error);
 		});
+	};
+	
+	$scope.add_new_exam = function(){
+		var modalInstance = $uibModal.open({
+		  animation: true,
+		  templateUrl: '/modules/exams/client/views/add-exam.client.view.html',
+		  controller: 'AddExamController',
+		  windowClass: 'add-exam-modal',
+		  size: "lg"
+		});
+
+		modalInstance.result.then(function (result) {
+		}, function () {
+		  
+		});
+		
 	};
 	
 	$scope.update = function(){
