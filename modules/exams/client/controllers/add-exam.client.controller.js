@@ -15,17 +15,17 @@
     $scope.submit = function(){
       ExamsService.create_exam($scope.new_exam)
 		.then(function(response){
-		  console.log(response);
-		  $scope.ok();
+  console.log(response);
+  $scope.ok();
 		}, function(error){
-		  console.log(error);
-		  $scope.ok();
+  console.log(error);
+  $scope.ok();
 		});
     };
 	
     $scope.ok = function () {
-	  $uibModalInstance.close();
-	};
+      $uibModalInstance.close();
+    };
 
 	
     $scope.cancel = function () {
