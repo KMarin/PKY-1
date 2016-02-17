@@ -46,6 +46,10 @@
   color: black;
 }
 
+.modal-body{
+  color: black;
+}
+
 table, th, td{
   border: 1px solid black;
   border-collapse: collapse;

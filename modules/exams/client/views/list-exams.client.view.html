@@ -17,9 +17,9 @@
 		<h3>{{selected_exam.title + " | " + selected_exam.class}}</h3></br>
 		<table>
 			<tr ng-repeat= "question in selected_exam.questions" >
-				<td>
-					<!---table-->
-						<tr><td>{{question.content}}
+				<td style = "width: 100%;">
+					<table style = "width: 100%">
+						<tr style = "width: 100%;"><td>{{question.content}}
 						</td></tr>
 						<tr ng-repeat="answer in question.answers">
 							<td class = "answerTable">{{answer.content}}</td>
