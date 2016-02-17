@@ -2,7 +2,7 @@
 
 		<ul ng-repeat= "(key,value) in exams | groupBy: 'class'">
 			{{key}}
-			<li ng-repeat="exam in value" ng-click="select_exam(exam)">
+			<li class = "btn btn-primary glyphicon glyphicon-edit" ng-repeat="exam in value" ng-click="select_exam(exam)">
 				{{exam.title}}
 			</li>
 		</ul>
@@ -14,7 +14,7 @@
 
 <div class = "col-md-8" ng-show="selected_exam">
 	<div>
-		<h3>{{selected_exam.title + " | " + selected_exam.class}}</h3></br>
+		<h3>{{selected_exam.class + " | " + selected_exam.title}}</h3></br>
 		<table>
 			<tr ng-repeat= "question in selected_exam.questions" >
 				<td style = "width: 100%;">
