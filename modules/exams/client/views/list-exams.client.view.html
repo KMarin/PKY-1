@@ -18,15 +18,16 @@
 		<table>
 			<tr ng-repeat= "question in selected_exam.questions" >
 				<td style = "width: 100%;">
-					<table style = "width: 100%">
-						<tr style = "width: 100%;"><td>{{question.content}}
+					<table class="inside-tbl">
+						<tr class="inside"><td>{{question.content}}
 						</td></tr>
-						<tr ng-repeat="answer in question.answers">
+						<tr class="inside" ng-repeat="answer in question.answers">
 							<td class = "answerTable">{{answer.content}}</td>
 						</tr>
+						<tr class= "space"><td>&nbsp</td></tr>
 					</table>
 				</td>
-			</tr></br>
+			</tr>
 		</table>
 	</div>
 	<div class="btn btn-primary" ng-click="add_question_to_exam(selected_exam)">

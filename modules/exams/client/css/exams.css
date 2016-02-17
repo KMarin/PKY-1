@@ -50,10 +50,24 @@
   color: black;
 }
 
-table, th, td{
+.inside-tbl{
+    width: 115%;
+}
+.inside{
   border: 1px solid black;
   border-collapse: collapse;
 }
+
+.space{
+  height: 15px; 
+  border-right: none; 
+  border-left: none;"
+}
+
+/*th, td{
+  border: 1px solid black;
+  border-collapse: collapse;
+}*/
 /*
 .modal-body{
 	width: 800px;
