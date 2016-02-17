@@ -1,11 +1,21 @@
 <div class="col-md-4">
-
-		<ul ng-repeat= "(key,value) in exams | groupBy: 'class'">
-			{{key}}
-			<li class = "btn btn-primary glyphicon glyphicon-edit" ng-repeat="exam in value" ng-click="select_exam(exam)">
-				{{exam.title}}
-			</li>
-		</ul>
+	<div class="row" ng-repeat= "(key,value) in exams | groupBy: 'class'">
+		<h3>{{key + " : "}}</h3>
+		<div class="row">
+			<div class="col-md-12" ng-repeat="exam in value">
+				<div class="row">
+					<div class="col-md-6">
+						<h5>{{exam.title + " : "}}</h5>
+					</div>
+					<div class="col-md-2 btn btn-primary glyphicon glyphicon-edit" ng-click="select_exam(exam)">
+					</div>
+					<div class="col-md-2 btn btn-primary glyphicon glyphicon-remove" ng-click="delete_exam(exam)">
+					</div>
+					<div class="col-md-2"></div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="btn btn-primary" ng-click="add_new_exam()">
 		Add a new exam
         <i class="glyphicon glyphicon-plus"></i>		
@@ -17,17 +27,16 @@
 		<h3>{{selected_exam.class + " | " + selected_exam.title}}</h3></br>
 		<table>
 			<tr ng-repeat= "question in selected_exam.questions" >
-				<td>
-					<table class="inside-tbl">
-						<tr class="question-row"><td class="question-text">{{question.content}}
+				<td style = "width: 100%;">
+					<table style = "width: 100%">
+						<tr style = "width: 100%;"><td>{{question.content}}
 						</td></tr>
-						<tr class="answer-row" ng-repeat="answer in question.answers">
-							<td class = "answer-text">{{answer.content}}</td>
+						<tr ng-repeat="answer in question.answers">
+							<td class = "answerTable">{{answer.content}}</td>
 						</tr>
-						<tr class= "space"><td>&nbsp</td></tr>
 					</table>
 				</td>
-			</tr>
+			</tr></br>
 		</table>
 	</div>
 	<div class="btn btn-primary" ng-click="add_question_to_exam(selected_exam)">
