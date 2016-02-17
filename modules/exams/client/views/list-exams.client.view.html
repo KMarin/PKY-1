@@ -17,12 +17,12 @@
 		<h3>{{selected_exam.title + " | " + selected_exam.class}}</h3></br>
 		<table>
 			<tr ng-repeat= "question in selected_exam.questions" >
-				<td style = "width: 100%;">
+				<td>
 					<table class="inside-tbl">
-						<tr class="inside"><td>{{question.content}}
+						<tr class="question-row"><td class="question-text">{{question.content}}
 						</td></tr>
-						<tr class="inside" ng-repeat="answer in question.answers">
-							<td class = "answerTable">{{answer.content}}</td>
+						<tr class="answer-row" ng-repeat="answer in question.answers">
+							<td class = "answer-text">{{answer.content}}</td>
 						</tr>
 						<tr class= "space"><td>&nbsp</td></tr>
 					</table>
