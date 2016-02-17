@@ -17,16 +17,17 @@
 		<h3>{{selected_exam.title + " | " + selected_exam.class}}</h3></br>
 		<table>
 			<tr ng-repeat= "question in selected_exam.questions" >
-				<td style = "width: 100%;">
-					<table style = "width: 100%">
-						<tr style = "width: 100%;"><td>{{question.content}}
+				<td>
+					<table class="inside-tbl">
+						<tr class="question-row"><td class="question-text">{{question.content}}
 						</td></tr>
-						<tr ng-repeat="answer in question.answers">
-							<td class = "answerTable">{{answer.content}}</td>
+						<tr class="answer-row" ng-repeat="answer in question.answers">
+							<td class = "answer-text">{{answer.content}}</td>
 						</tr>
+						<tr class= "space"><td>&nbsp</td></tr>
 					</table>
 				</td>
-			</tr></br>
+			</tr>
 		</table>
 	</div>
 	<div class="btn btn-primary" ng-click="add_question_to_exam(selected_exam)">
