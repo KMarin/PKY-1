@@ -50,10 +50,44 @@
   color: black;
 }
 
-table, th, td{
+.inside-tbl{
+    width: 110%;
+    max-width: 500px;
+}
+
+.question-row{
+  border: 3px solid black;
+  border-collapse: collapse;
+
+  }
+
+  .question-text{
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 12pt;
+  }
+
+.answer-row{
   border: 1px solid black;
   border-collapse: collapse;
 }
+
+.answer-text{
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 10pt;
+}
+
+.space{
+  height: 15px; 
+  border-right: none; 
+  border-left: none;"
+}
+
+/*th, td{
+  border: 1px solid black;
+  border-collapse: collapse;
+}*/
 /*
 .modal-body{
 	width: 800px;
