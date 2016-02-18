@@ -1,3 +1,4 @@
+
 <div class="col-md-4">
 	<div class="row" ng-repeat= "(key,value) in exams | groupBy: 'class'">
 		<h3>{{key + " : "}}</h3>
@@ -21,10 +22,12 @@
         <i class="glyphicon glyphicon-plus"></i>		
 	</div>
 </div>
-
-<div class = "col-md-8" ng-show="selected_exam">
-	<div>
-		<h3>{{selected_exam.class + " | " + selected_exam.title}}</h3></br>
+	<div class = "col-lg-8" ng-show="selected_exam">
+		<h3>{{selected_exam.title + " | " + selected_exam.class}}</h3></br>
+			<div class="btn btn-primary" ng-click="add_question_to_exam(selected_exam)">
+				Add a new question
+		        <i class="glyphicon glyphicon-plus"></i>		
+			</div>
 		<table>
 			<tr ng-repeat= "question in selected_exam.questions" >
 				<td style = "width: 100%;">
@@ -39,9 +42,6 @@
 			</tr></br>
 		</table>
 	</div>
-	<div class="btn btn-primary" ng-click="add_question_to_exam(selected_exam)">
-		Add a new question
-        <i class="glyphicon glyphicon-plus"></i>		
-	</div>
-</div>
+<!--/div-->
+
 

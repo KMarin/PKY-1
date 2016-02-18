@@ -22,22 +22,22 @@ exports.create = function (req, res) {
       });
     } else if(req.body.exam) {
 		// if create question req had an optional exam parameter, add to exam
-		Exam.findOneAndUpdate({_id:req.body.exam},
-		{
-			$push:{'questions': q._id}
-		},
+      Exam.findOneAndUpdate({ _id:req.body.exam },
+        {
+          $push:{ 'questions': q._id }
+        },
 		function(err,exam){
-			if (err) {
-				return res.status(400).send({
-				message: errorHandler.getErrorMessage(err)
-				});
-			}
-			res.json(question);
+  if (err) {
+    return res.status(400).send({
+      message: errorHandler.getErrorMessage(err)
+    });
+  }
+  res.json(question);
 		});
     }
 	else{
-		res.json(question);
-	}
+      res.json(question);
+    }
   });
 };
 
