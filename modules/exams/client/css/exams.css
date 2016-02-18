@@ -22,7 +22,7 @@
 }
 .mc-answer td{
   padding: 10px;
-  padding-left: 0px;
+  padding-left: 0;
   width: 100%;
 }
 
@@ -34,11 +34,11 @@
 .mc_incorrect.disabled {
 	cursor:pointer;
 }
-
+/*
 .mc_incorrect.btn:focus {
   outline: none;
 }
-
+*/
 .answerTable{
   padding-left: 25px;
 }
@@ -79,7 +79,7 @@
 .space{
   height: 15px; 
   border-right: none; 
-  border-left: none;"
+  border-left: none;
 }
 
 .pleasework{
