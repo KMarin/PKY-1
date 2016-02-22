@@ -50,9 +50,12 @@
     $scope.cancel = function () {
       $uibModalInstance.dismiss('cancel');
     };
-  
 
-	
+    window.onpopstate = function(event) {
+      $uibModalInstance.close();
+    };  
+
+
 	
   }
   

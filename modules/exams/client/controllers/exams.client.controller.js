@@ -79,8 +79,14 @@
 		
     };
 	
-    $scope.delete = function(){
-		
+    $scope.delete_exam = function(exam){
+      var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: '/modules/exams/client/views/delete-exam.client.view.html',
+        controller: 'DeleteExamController',
+        windowClass: 'delete-exam-modal',
+        size: 'lg'
+      });
     };
 	
   }
