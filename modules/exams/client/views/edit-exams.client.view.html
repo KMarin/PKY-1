@@ -1,0 +1,44 @@
+<div class="container edit-exams">
+	<div class="row">
+		<div class="col-md-12">
+			&nbsp
+		</div>
+	</div>
+	<div class="row">
+		<!-- previous solution
+		<div class="col-md-2 exam_selector">
+			<uib-tabset vertical="true" type="pills" ng-repeat= "(key,value) in exams | groupBy: 'class'">
+				<h3>{{key}}</h3>
+				<uib-tab active="exam.active" ng-repeat="exam in value" heading="{{exam.title}}" ng-click="activate_tab(exam)"></uib-tab>
+			</uib-tabset>	
+		</div>
+		<select class="form-control" ng-model="t" ng-options="o as o for o in class_types"></select>
+		-->
+		
+		<!-- another attempt
+		<div class="col-md-2 exam_selector">
+			<div class="row">
+				<select class="form-control" ng-model="selected_class_type">
+					<option ng-repeat="class in class_types">{{class}}</option>
+				</select>
+			</div>
+			<div class="row">
+				<uib-tabset vertical="true" type="pills">
+					<uib-tab active="exam.active" ng-repeat= "exam in exams | filter:selected_class_type" heading="{{exam.title}}" ng-click="activate_tab(exam)"></uib-tab>
+				</uib-tabset>	
+			</div>
+		</div>
+		-->
+		
+		<!-- show all tests without any class grouping -->
+		<div class="col-md-2 exam-selector">
+			<uib-tabset vertical="true" type="pills">
+				<uib-tab active="exam.active" ng-repeat= "exam in exams" heading="{{exam.title}}" ng-click="activate_tab(exam)"></uib-tab>
+			</uib-tabset>	
+		</div>		
+		
+		<div class="col-md-10">
+			<div ui-view></div>
+		</div>
+	</div>
+</div>

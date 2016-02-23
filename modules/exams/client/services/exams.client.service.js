@@ -19,7 +19,7 @@
         },	
 			
         update_exam : function(exam){
-          return $http.put(exam_url_base + '/' + exam.id, exam);
+          return $http.put(exam_url_base + '/' + exam._id, exam);
         },
 			
         create_exam : function(exam){
@@ -40,7 +40,7 @@
         },	
 			
         update_question : function(question){
-          return $http.put(question_url_base + '/' + question.id, question);
+          return $http.put(question_url_base + '/' + question._id, question);
         },
 			
         create_question : function(question){

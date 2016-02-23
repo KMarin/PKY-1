@@ -12,7 +12,7 @@ module.exports = function (app) {
     .get(exams.listAll)
     .post(exams.create);
 	
-  app.route('/api/exams/:classId').all(examsPolicy.isAllowed)
+  app.route('/api/exams/class/:classId').all(examsPolicy.isAllowed)
     .get(exams.listByClassID);
 
   // Single exam routes
