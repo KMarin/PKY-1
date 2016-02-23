@@ -5,9 +5,9 @@
     .module('exams')
     .controller('EditSingleExamController', EditSingleExamController);
 
-  EditSingleExamController.$inject = ['$scope','$state','$stateParams', 'ExamsService', 'Authentication','$uibModal','exam'];
+  EditSingleExamController.$inject = ['$scope','$rootScope','$state','$stateParams', 'ExamsService', 'Authentication','$uibModal','exam'];
 
-  function EditSingleExamController($scope, $state, $stateParams, ExamsService, Authentication, $uibModal, exam) {
+  function EditSingleExamController($scope,$rootScope, $state, $stateParams, ExamsService, Authentication, $uibModal, exam) {
 	
 	$scope.exam = null;
 	
@@ -34,6 +34,15 @@
 		  
       });
 	};
+	
+	$scope.delete_exam = function(_exam){
+      ExamsService.delete_exam(_exam._id)
+        .then(function(response){
+
+        }, function(error){
+
+        });
+	};
 
 	$scope.add_question_to_exam = function (_exam) {	
       var modalInstance = $uibModal.open({
@@ -57,6 +66,8 @@
 		  
       });
     };
+	
+	console.log($rootScope);
 	
 	$scope.edit_question = function(_exam, _question){
 		var modalInstance = $uibModal.open({
