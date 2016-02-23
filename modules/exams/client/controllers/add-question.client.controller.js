@@ -88,7 +88,7 @@
     $scope.cancel = function () {
       $uibModalInstance.dismiss('cancel');
     };
-  
+
 	$scope.$on('$locationChangeStart', function(event) {
 		event.preventDefault();
 		$uibModalInstance.dismiss('cancel');
