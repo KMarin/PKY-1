@@ -85,7 +85,7 @@
       });
 	};
 	
-	$scope.delete_exam = function(_exam){
+	$scope.delete_exam1 = function(_exam){
       ExamsService.delete_exam(_exam._id)
         .then(function(response){
 
