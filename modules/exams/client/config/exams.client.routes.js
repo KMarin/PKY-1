@@ -9,30 +9,29 @@
 
   function routeConfig($stateProvider) {
     $stateProvider
-      .state('exams', {
-        abstract: true,
-        url: '/exams',
-        template: '<ui-view/>'
+      .state('edit-exams', {
+		url: '/exams/edit',
+        templateUrl: 'modules/exams/client/views/edit-exams.client.view.html',
+		controller: 'EditExamsController',
+		resolve:{
+			exams: function(ExamsService){
+				return ExamsService.get_exams();
+			}
+		}
       })
-      .state('exams.list', {
-        url: '',
-        templateUrl: 'modules/exams/client/views/list-exams.client.view.html',
-        controller: 'ExamsController',
-      })
-      .state('exams.create', {
-        url: '/create',
-        templateUrl: 'modules/exams/client/views/form-exam.client.view.html',
-        controller: 'ExamsController',
-      })
-      .state('exams.edit', {
-        url: '/:examId/edit',
-        templateUrl: 'modules/exams/client/views/form-exam.client.view.html',
-        controller: 'ExamsController',
-      })
-      .state('exams.view', {
-        url: '/:examId',
-        templateUrl: 'modules/exams/client/views/view-exam.client.view.html',
-        controller: 'ExamsController',
+      .state('edit-exams.single', {
+		url:'/:exam_id',
+		parent: 'edit-exams',
+        templateUrl: 'modules/exams/client/views/edit-single-exam.client.view.html',
+        controller: 'EditSingleExamController',
+		resolve:{
+			exam: function(ExamsService, $stateParams){
+				if(!$stateParams.exam_id){
+					return null;
+				}
+				return ExamsService.get_exam($stateParams.exam_id);
+			}
+		}
       });
   }
 

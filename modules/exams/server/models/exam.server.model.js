@@ -21,7 +21,7 @@ var ExamSchema = new Schema({
   },
   class: {
     type: String,
-    enum: ClassTypes,
+    /*enum: ClassTypes,*/
     required: 'Exam class cannot be blank'
   },
   questions: [{ 

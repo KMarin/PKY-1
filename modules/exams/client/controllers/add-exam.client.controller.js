@@ -5,29 +5,49 @@
     .module('exams')
     .controller('AddExamController', AddExamController);
 
-  AddExamController.$inject = ['$scope', '$rootScope', '$state', '$stateParams', 'ExamsService', 'Authentication', '$uibModalInstance'];
+  AddExamController.$inject = ['$scope', '$rootScope', '$state', '$stateParams', 'ExamsService', 'Authentication', '$uibModalInstance','old_exam'];
 
-  function AddExamController($scope, $rootScope, $state, $stateParams, ExamsService, Authentication, $uibModalInstance) {
+  function AddExamController($scope, $rootScope, $state, $stateParams, ExamsService, Authentication, $uibModalInstance, old_exam) {
 
-    $scope.new_exam = {};
+    $scope.exam = {};
+	$scope.alert = null;
+	
+	// edit mode
+	if(old_exam){
+		$scope.exam = JSON.parse(JSON.stringify(old_exam));
+	}
+	
+	// TODO: info endpoint
     $scope.classes = ['Algebra 1', 'Algebra 2'];
 	
-    $scope.submit = function(){
-      ExamsService.create_exam($scope.new_exam)
+	$scope.submit = function(){
+		
+		if(old_exam){
+			console.log($scope.exam);
+			ExamsService.update_exam($scope.exam)
+			.then(function(response){
+				old_exam.class = response.data.class;
+				old_exam.title = response.data.title;
+				$scope.ok();
+			}, function(error){
+				//TODO
+			});
+			
+			return;
+		}
+	
+		ExamsService.create_exam($scope.exam)
 		.then(function(response){
-  console.log(response);
-  $scope.ok();
+			$scope.ok();
 		}, function(error){
-  console.log(error);
-  $scope.ok();
+			//TODO
 		});
-    };
+	};
 	
     $scope.ok = function () {
       $uibModalInstance.close();
     };
 
-	
     $scope.cancel = function () {
       $uibModalInstance.dismiss('cancel');
     };
@@ -35,6 +55,11 @@
     window.onpopstate = function(event) {
       $uibModalInstance.close();
     };
+	
+	$scope.$on('$locationChangeStart', function(event) {
+		event.preventDefault();
+		$uibModalInstance.dismiss('cancel');
+	});
 	
   }
   

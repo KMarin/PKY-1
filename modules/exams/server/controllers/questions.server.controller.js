@@ -10,13 +10,14 @@ var path = require('path'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 /**
- * Create an article
+ * Create a question
  */
 exports.create = function (req, res) {
   var question = new Question(req.body);
 
   question.save(function (err,q) {
     if (err) {
+	  console.log(err);
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
@@ -53,11 +54,17 @@ exports.read = function (req, res) {
  */
 exports.update = function (req, res) {
   var question = req.question;
+  question.content = req.body.content;
+  question.answers = req.body.answers;
+  question.type = req.body.type;
 
   question.save(function (err) {
     if (err) {
+		console.log(err);
+		console.log(JSON.stringify(err));
       return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
+        //message: err
+		message: errorHandler.getErrorMessage(err)
       });
     } else {
       res.json(question);
