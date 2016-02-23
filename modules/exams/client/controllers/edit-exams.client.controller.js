@@ -44,7 +44,6 @@
 	// init all tabs inactive
 	$scope.activate_tab();
 	
-	
   }
   
 })();
