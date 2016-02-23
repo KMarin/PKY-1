@@ -21,7 +21,7 @@ exports.invokeRolesPolicies = function () {
       resources: '/api/exams/:examId',
       permissions: '*'
     }, {
-      resources: '/api/exams/:classId',
+      resources: '/api/exams/class/:classId',
       permissions: '*'
     }]
   }, {
@@ -33,7 +33,7 @@ exports.invokeRolesPolicies = function () {
       resources: '/api/exams/:examId',
       permissions: '*'
     }, {
-      resources: '/api/exams/:classId',
+      resources: '/api/exams/class/:classId',
       permissions: '*'
     }]
   }, {
@@ -45,7 +45,7 @@ exports.invokeRolesPolicies = function () {
       resources: '/api/exams/:examId',
       permissions: '*'
     }, {
-      resources: '/api/exams/:classId',
+      resources: '/api/exams/class/:classId',
       permissions: '*'
     }]
   }]);

@@ -5,54 +5,94 @@
     .module('exams')
     .controller('AddQuestionController', AddQuestionController);
 
-  AddQuestionController.$inject = ['$scope','$state','$stateParams', 'ExamsService', 'Authentication','$uibModalInstance','selected_exam'];
+  AddQuestionController.$inject = ['$scope','$rootScope','$state','$stateParams', 'ExamsService', 'Authentication','$uibModalInstance','selected_exam','old_question'];
 
-  function AddQuestionController($scope, $state, $stateParams, ExamsService, Authentication, $uibModalInstance, selected_exam) {
-    $scope.selected_exam = selected_exam;
-    $scope.question_content = null;
-    $scope.answers_content = [];
-    $scope.num_mc_answers = 0;
+  function AddQuestionController($scope, $rootScope, $state, $stateParams, ExamsService, Authentication, $uibModalInstance, selected_exam,old_question) {
+    
+	$scope.selected_exam = selected_exam;
+	$scope.selected_type = null;
+	$scope.question = {};
+	$scope.question.answers = [];
+	$scope.question.exam = selected_exam._id;
+	$scope.alert = {};
+	
+	// edit mode
+	if(old_question){
+		// copy hack to prevent question from changing beneath modal
+		$scope.selected_type = old_question.type;
+		$scope.question = JSON.parse(JSON.stringify(old_question));
+	}
   
     $scope.add_new_mc_answer = function(){
-      $scope.num_mc_answers += 1;
-      $scope.answers_content.push({
+      $scope.question.answers.push({
         content: '',
-        id: $scope.num_mc_answers,
         correct: false,
       });
     };
+	
+	$scope.select_mc_answer = function(index){
+		if($scope.question && $scope.question.answers){
+			for(var i = 0; i < $scope.question.answers.length; ++i){
+				$scope.question.answers[i].correct = (i==index);
+			}
+		}
+	};
   
     $scope.remove_mc_answer = function(index){
-      $scope.answers_content.splice(index, 1);  
-    };
-
-    $scope.ok = function () {
-      $uibModalInstance.close();
+      $scope.question.answers.splice(index, 1);  
     };
   
     $scope.submit = function(){
-	// post question, add question to test  
-      var question ={
-        type: $scope.selected_type,
-        exam: $scope.selected_exam._id,
-        content: $scope.question_content,
-        answers: $scope.answers_content	
-      };
-
-      ExamsService.create_question(question)
-        .then(function(response){
-          console.log(response);
+	// if edit mode, update question
+	if(old_question){
+		ExamsService.update_question($scope.question)
+		.then(function(response){
+			// update old question which is a reference to the question being edited	
+			old_question.content = response.data.content;
+			old_question.answers = response.data.answers;
+			old_question.type = response.data.type;
+			
+			$scope.ok();
         }, function(error){
-          console.log(error);
+			if(error.data && error.data.message)
+			$scope.set_alert(error.data.message);
         });
+		
+		return;
+	}
+		
+	// add question, associate with test  
+      ExamsService.create_question($scope.question)
+        .then(function(response){
+			selected_exam.questions.push(response.data);
+			$scope.ok();
+        }, function(error){
+			if(error.data && error.data.message)
+			$scope.set_alert(error.data.message);
+        });
+    };
+
+	$scope.set_alert = function(msg){
+		$scope.alert.message = msg;
+		$scope.alert.show = true;
+	}
+	
+	$scope.clear_alert = function(){
+		$scope.alert.show = false;
+	}
+	
+	$scope.ok = function () {
+      $uibModalInstance.close();
     };
 
     $scope.cancel = function () {
       $uibModalInstance.dismiss('cancel');
     };
   
-
-	
+	$scope.$on('$locationChangeStart', function(event) {
+		event.preventDefault();
+		$uibModalInstance.dismiss('cancel');
+	});
 	
   }
   

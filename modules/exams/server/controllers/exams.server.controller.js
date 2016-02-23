@@ -14,8 +14,6 @@ var path = require('path'),
 exports.create = function (req, res) {
   var exam = new Exam(req.body);
   
-  console.log(exam);
-
   exam.save(function (err) {
     if (err) {
       return res.status(400).send({
@@ -39,10 +37,12 @@ exports.read = function (req, res) {
  */
 exports.update = function (req, res) {
   var exam = req.exam;
+  exam.title = req.body.title;
+  exam.class = req.body.class;
   exam.save(function (err) {
     if (err) {
       return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
+		message: errorHandler.getErrorMessage(err)
       });
     } else {
       res.json(exam);
@@ -104,7 +104,11 @@ exports.examByID = function (req, res, next, id) {
         message: 'No exam with that identifier has been found'
       });
     }
-    req.exam = exam;
+    
+	//res.json(exam);
+	
+	// TODO: find out why this is really slow on gets
+	req.exam = exam;
     next();
   });
 };

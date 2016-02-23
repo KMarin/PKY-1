@@ -10,15 +10,15 @@
   function menuConfig(Menus) {
     Menus.addMenuItem('topbar', {
       title: 'Exams',
-      state: 'exams',
+      state: 'edit-exams',
       type: 'dropdown',
-      roles: ['admin', 'user']
+      roles: ['admin']
     });
 	
     // Add the dropdown list item
-    Menus.addSubMenuItem('topbar', 'exams', {
+    Menus.addSubMenuItem('topbar', 'edit-exams', {
       title: 'Edit',
-      state: 'exams.list'
+      state: 'edit-exams'
     });
 
   }
