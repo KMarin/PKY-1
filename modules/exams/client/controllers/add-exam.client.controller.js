@@ -11,6 +11,7 @@
 
     $scope.exam = {};
 	$scope.alert = null;
+	$scope.old_exam = old_exam;
 	
 	// edit mode
 	if(old_exam){
@@ -23,7 +24,6 @@
 	$scope.submit = function(){
 		
 		if(old_exam){
-			console.log($scope.exam);
 			ExamsService.update_exam($scope.exam)
 			.then(function(response){
 				old_exam.class = response.data.class;
