@@ -51,6 +51,10 @@
     $scope.cancel = function () {
       $uibModalInstance.dismiss('cancel');
     };
+
+    window.onpopstate = function(event) {
+      $uibModalInstance.close();
+    };
 	
 	$scope.$on('$locationChangeStart', function(event) {
 		event.preventDefault();

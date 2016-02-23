@@ -14,7 +14,57 @@
 	if(exam){
 		$scope.exam = exam.data;
 	}
-	
+
+  $scope.delete_exam = function(_exam){
+    var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: '/modules/exams/client/views/prompt-yes-no.client.view.html',
+        controller: 'PromptController',
+        windowClass: 'prompt-modal',
+        size: 'lg',
+        resolve: {
+      old_exam: function(){
+      return _exam;
+      },
+      string_header: function(){
+        return 'Are you sure you want to premanantly delete ' + _exam.title + '?';
+      }
+        }
+      });
+    
+      modalInstance.result.then(function (result) {
+      }, function () {
+      
+      });
+  };
+
+  $scope.delete_question = function(_question){
+    var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: '/modules/exams/client/views/prompt-yes-no.client.view.html',
+        controller: 'PromptController',
+        windowClass: 'prompt-modal',
+        size: 'lg',
+        resolve: {
+      question: function(){
+      return _question;
+      },
+      string_header: function(){
+        return 'Are you sure you want to premanantly delete this question?';
+      },
+      old_exam: function(){
+        return null;
+      }
+        }
+      });
+    
+      modalInstance.result.then(function (result) {
+      }, function () {
+      
+      });
+  };
+
+  
 	$scope.edit_exam = function(_exam){
 		var modalInstance = $uibModal.open({
         animation: true,
